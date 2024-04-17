@@ -1,0 +1,38 @@
+h1,p{
+    animation-name: mvr1;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+h2{
+    animation-name: mvr2;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+
+@keyframes mvr1 {
+    from{
+        margin-left: 0%;
+    }
+
+    50%{
+        margin-left: 85%;
+    }
+
+    to{
+        margin-left: 0%;
+    }
+}
+
+@keyframes mvr2 {
+    from{
+        margin-left: 85%;
+    }
+    50%{
+        margin-left: 0%;
+    }
+    to{
+        margin-left: 85%;
+    }
+}
