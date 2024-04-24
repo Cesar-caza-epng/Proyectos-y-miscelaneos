@@ -42,7 +42,11 @@
         border-radius: 0;
     }
 
-    to{
+    50%{
         border-radius: 50%;
+    }
+
+    to{
+        border-radius: 0;
     }
 }
