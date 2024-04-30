@@ -1,0 +1,68 @@
+#frame1{
+    position: absolute;
+    top: 100px;
+    animation-name: mvr;
+    animation-duration: 0.3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: step-start;
+}
+
+#frame2{
+    position: absolute;
+    top: 100px;
+    animation-name: mvr1;
+    animation-duration: 0.3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: step-start;
+}
+
+#frame3{
+    position: absolute;
+    top: 100px;
+    animation-name: mvr2;
+    animation-duration: 0.3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: step-start;
+}
+
+@keyframes mvr {
+    0%{
+        opacity: 1;
+    }
+
+    50%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 0;
+    }
+}
+
+@keyframes mvr1 {
+    0%{
+        opacity: 0;
+    }
+
+    50%{
+        opacity: 1;
+    }
+
+    100%{
+        opacity: 0;
+    }
+}
+
+@keyframes mvr2 {
+    0%{
+        opacity: 0;
+    }
+
+    50%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
+    }
+}
