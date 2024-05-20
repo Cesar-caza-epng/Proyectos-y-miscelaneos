@@ -1,0 +1,15 @@
+#canvas{
+    width: 1400px;
+    height: 700px;
+    background-image: url(Imagenes/toujou.webp);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border: solid black 5px;
+}
+
+#nia{
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    top: 250px;
+}
