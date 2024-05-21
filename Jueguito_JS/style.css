@@ -13,3 +13,15 @@
     width: 100px;
     top: 250px;
 }
+
+#botonjuego{
+    width: 100px;
+    height: 50px;
+    border: solid black;
+    background-color: beige;
+    border-radius: 15px;
+}
+
+#botonjuego:hover{
+    filter: brightness(80%);
+}
