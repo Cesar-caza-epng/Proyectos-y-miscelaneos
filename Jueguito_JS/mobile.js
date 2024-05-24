@@ -2,11 +2,22 @@ perso=document.getElementById("nia");
 canv=document.getElementById("canvas");
 bot=document.getElementById("botonjuego");
 ene=document.getElementById("ene");
+let enemi=[];
 let cooldown=false
 let juegoini=false;
 bot.addEventListener("click", function(){
     if(juegoini===false){
+        if(enemi.length>0){
+            enemi.forEach(ene =>{
+                canv.removeChild(ene);
+            });
+            enemi=[];
+        }
+
+        juegoini=true;
+        active=true;
         Empzr_Juego();
+        console.log(enemi)
     }
 });
 let pressD=false;
@@ -24,8 +35,6 @@ function Empzr_Juego(){
             let canvaL=canv.offsetLeft;
             let canvaT=canv.offsetTop;
             let canvaB=canv.offsetTop+canv.offsetHeight;
-            juegoini=true;
-            enemi=[];
             perso.style.left=posLpersonaje;
             perso.style.top=posTpersonaje;
             document.addEventListener("keydown" ,function(event){
@@ -121,13 +130,16 @@ function Empzr_Juego(){
                     let posact = parseInt(getComputedStyle(perso).top,10);
                     perso.style.top=(posact+10) + "px";
                 }
-                requestAnimationFrame(mover);
+                if(active){
+                    requestAnimationFrame(mover);
+                }
+                
 
             }
 
             let velocidad=5
 
-            function mvrenemi(){
+            function mvrenemi(){ /*tambien checar si está colisionando*/
                 enemi.forEach(ene =>{
                     pos=parseInt(getComputedStyle(ene).left,10);
                     top=parseInt(getComputedStyle(ene).top,10);
@@ -138,14 +150,15 @@ function Empzr_Juego(){
                         ene.style.top=getRandomNumberInRange(canvaT, canvaB-100) + "px";
                     }
                     
-                    if(posleft>pos && postop>top){
-                        console.log("TOCARON ALVVV")
+                    if((posleft+50>pos && posleft<pos+100) || (postop+50>top && postop<top+100)){
+                        active=false;
+                        juegoini=false;
                     }
                 });
-                console.log("posleft" + posleft);
-                console.log("postop" + postop);
-                console.log("pos" + pos);
-                requestAnimationFrame(mvrenemi);
+                if(active){
+                    requestAnimationFrame(mvrenemi);
+                }
+                
             }
 
             function getRandomNumberInRange(min, max) {
@@ -173,7 +186,8 @@ function Empzr_Juego(){
             }
 
             crearEnemi();
-            PintarEnemis();
+            PintarEnemis()
+            
             mvrenemi();
             mover();
         }
